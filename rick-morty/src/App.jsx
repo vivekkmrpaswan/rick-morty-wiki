@@ -18,7 +18,7 @@ function App() {
   let { info, results } = fetchedData;
 
   // console.log(results)
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
   useEffect(() => {
     (async function () {
@@ -33,7 +33,7 @@ function App() {
           Rick & Morty <span className="text-primary">Wiki</span>
         </h1>
       </div>
-      <Search setSearch={setSearch} />
+      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container">
         <div className="row">
           <div className="col-3">
@@ -46,7 +46,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+      <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
     </>
   );
 }
